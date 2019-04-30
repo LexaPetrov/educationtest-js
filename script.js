@@ -1,15 +1,21 @@
 var tasks = JSON.parse(JSON.stringify(test));
 var counter = 0;
 function showQuestions(){
-	refresh();
-	document.getElementById("begin").style.display = "none";
-	document.getElementById("next").style.display = "inline";
-	next();
-	for (var i = 0; i  < 205; i++) {
-		var questions = new Array(tasks[i].question);
-		var answers = new Array(tasks[i].answers);
-  		questions.sort();
-  		answers.sort();
+	if(document.getElementById("name").value === '') {
+    	alert("Напиши свое имя!");
+	}
+	else {
+		refresh();
+		document.getElementById("begin").style.display = "none";
+		document.getElementById("next").style.display = "inline-block";
+		document.getElementById("canceltest").style.display = "inline-block";
+		next();
+		for (var i = 0; i  < 205; i++) {
+			var questions = new Array(tasks[i].question);
+			var answers = new Array(tasks[i].answers);
+	  		questions.sort();
+	  		answers.sort();
+		}
 	}
 }
 
@@ -23,25 +29,20 @@ function next() {
 			console.log("много вопросов/тест окончен");
 		}
 		else {
+			document.getElementById("answers").innerHTML = "";
+			var answer;
 			var int = getRandomInt(0, 204);
 			document.getElementById("number").innerHTML = "Вопрос "+ counter +" из 30";
 			document.getElementById("question").innerHTML = tasks[int].question;
-			document.getElementById("answers").innerHTML = tasks[int].answers;
+			for (answer of tasks[int].answers) {
+				document.getElementById("answers").innerHTML += ' <input type="radio" value=""></input> ' + answer + '<br>';
+			}
 			var correctanswer = tasks[int].index;
 			document.getElementById("correctanswers").innerHTML = correctanswer + "(правильный ответ - потом убрать надо)";//потом убрать, нужно сравнивать
 			//нажатую кнопку ответа с этим индексом и засчитывать правильный или неправильный ответ.
 		}
 	
 }
-
-
-
-
-
-
-
-
-
 
 var sec=00;
 var min=60;

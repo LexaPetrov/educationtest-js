@@ -37,7 +37,7 @@
 					<div class="col-sm-12 col-xs-12">
 						<div class="hello">
 							<p>Привет! Чтобы начать, напиши своё имя:</p>
-							<input type="text" required=""></input>
+							<input type="text" required="" id="name"></input>
 							<a href="#" id="begin" class="btn btn-info begintest" onclick="showQuestions();">Начать тест!</a>
 						</div>
 						<div class="test">
@@ -56,7 +56,7 @@
 							<div class="navbutton">
 								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next">Следующий вопрос</a>
 								<span id="number"><!-- вопрос N из 30 --></span>
-								<a href="#" onclick="cancel();" class="btn btn-danger canceltest">Завершить тест</a>
+								<a href="#" id="canceltest" onclick="cancel();" class="btn btn-danger canceltest">Завершить тест</a>
 							</div>
 						</div>
 					</div>

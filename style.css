@@ -27,7 +27,7 @@
 .centered { margin: 0 auto; }
 #footer { height: 75px; }
 
-.test, .hello, #footer, {
+.test, .hello, #footer {
 	display: block;
 	box-shadow: 0px 1px 5px 0px gray;
 	margin-bottom: 10px;
@@ -42,7 +42,8 @@
 .canceltest { float: right; }
 .question, .answers { padding: 10px; }
 #timer { font-weight: bolder; }
-#next { display: none; }
+#next, #canceltest { display: none; }
+#question { font-weight: bolder; }
 
 
 
