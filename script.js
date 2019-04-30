@@ -19,7 +19,7 @@ function getRandomInt(min, max) {
 
 function next() {
 		counter++;
-		if (counter > 29){
+		if (counter > 30){
 			console.log("много вопросов/тест окончен");
 		}
 		else {
