@@ -2,17 +2,71 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Test</title>
-	<script type="text/javascript" src="test.json"></script>
-	<script src="script.js"></script>
-
+	<title>Тест для старшей школы | Оренбург</title>
+	<script type="text/javascript" src="./test.json"></script>
+	<script src="./script.js"></script>
+	<script src="./bootstrap.min.js"></script>
+	<script src="./jquery.js"></script>
+	<link rel="stylesheet" href="./bootstrap.min.css">
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	
+<!-- <nav class="navbar navbar-light light-blue lighten-4">
+	  <a class="navbar-brand" href="#">Navbar</a>
+	  <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+	    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+	        class="fas fa-bars fa-1x"></i></span>
+	  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Features</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Pricing</a>
+		      </li>
+		    </ul>
+		  </div>
+</nav> -->
+		<div class="container">
+			<main>
+				<div class="row">
+					<div class="col-sm-12 col-xs-12">
+						<div class="hello">
+							<p>Привет! Чтобы начать, напиши своё имя:</p>
+							<input type="text" required=""></input>
+							<a href="#" class="btn btn-info begintest" onclick="starttest();">Начать тест!</a>
+						</div>
+						<div class="test">
+							<div class="time">
+								<p>Осталось времени:</p>
+								<span class="remaining"></span>
+							</div>
+							<div class="question">
+								Тут будут вопросы
+							</div>
+							<div class="answers">
+								Тут будут ответы
+							</div>
+							<div class="navbutton">
+								<a href="#" onclick="next();" class="btn btn-success nextquestion">Следующий вопрос</a>
+								<a href="#" onclick="cancel();" class="btn btn-danger canceltest">Завершить тест</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</main>
 
-
-
-
+			<footer id="footer">
+				<div>
+					
+				</div>
+			</footer>
+		</div>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>

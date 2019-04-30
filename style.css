@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'Geometria';
+  src: url('./fonts/Geometria.ttf');
+}
+
+@font-face {
+  font-family: 'Geometria-Heavy';
+  src: url('./fonts/Geometria-Heavy.ttf');
+}
+
+@font-face {
+  font-family: 'Geometria-Bold';
+  src: url('./fonts/Geometria-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Geometria-ExtraBold';
+  src: url('./fonts/Geometria-ExtraBold.ttf');
+}
+
+body {
+	padding-top: 1%;
+	font-family: "Geometria", sans-serif;
+}
+
+.container {
+	width: 50%;
+}
+
+.centered {
+	margin: 0 auto;
+}
+
+#footer {
+	height: 75px;
+}
+
+.test, .hello, #footer {
+	/*border: 1px dotted gray;*/
+	box-shadow: 0px 1px 3px 0px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	height: 100%;
+}
+
+#footer {
+	margin-top: 0px;
+}
+
+.test a {
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+.test {
+}
+
+.canceltest {
+	float: right;
+}
+
+.question, .answers {
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fa-1x {
+font-size: 1.5rem;
+}
+.navbar-toggler.toggler-example {
+cursor: pointer;
+}
+.dark-blue-text {
+color: #0A38F5;
+}
+.dark-pink-text {
+color: #AC003A;
+}
+.dark-amber-text {
+color: #ff6f00;
+}
+.dark-teal-text {
+color: #004d40;
+}
