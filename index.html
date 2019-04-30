@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<script src="./jquery.js"></script>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -39,21 +38,24 @@
 						<div class="hello">
 							<p>Привет! Чтобы начать, напиши своё имя:</p>
 							<input type="text" required=""></input>
-							<a href="#" class="btn btn-info begintest" onclick="starttest();">Начать тест!</a>
+							<a href="#" id="begin" class="btn btn-info begintest" onclick="showQuestions();">Начать тест!</a>
 						</div>
 						<div class="test">
 							<div class="time">
-								<p>Осталось времени:</p>
-								<span class="remaining"></span>
+								<p>Осталось времени: <span id="timer"></span></p>
 							</div>
-							<div class="question">
-								Тут будут вопросы
+							<div id="question">
+								
 							</div>
-							<div class="answers">
-								Тут будут ответы
+							<div id="answers">
+						
+							</div>
+							<div id="correctanswers">
+						
 							</div>
 							<div class="navbutton">
-								<a href="#" onclick="next();" class="btn btn-success nextquestion">Следующий вопрос</a>
+								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next">Следующий вопрос</a>
+								<span id="number"><!-- вопрос N из 30 --></span>
 								<a href="#" onclick="cancel();" class="btn btn-danger canceltest">Завершить тест</a>
 							</div>
 						</div>

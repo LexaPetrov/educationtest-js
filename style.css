@@ -23,19 +23,11 @@
   src: url('./fonts/glyphicons-halflings-regular.ttf');
 }
 
-.container {
-	display: block;
-}
+.container { display: block; }
+.centered { margin: 0 auto; }
+#footer { height: 75px; }
 
-.centered {
-	margin: 0 auto;
-}
-
-#footer {
-	height: 75px;
-}
-
-.test, .hello, #footer {
+.test, .hello, #footer, {
 	display: block;
 	box-shadow: 0px 1px 5px 0px gray;
 	margin-bottom: 10px;
@@ -44,25 +36,13 @@
 	height: 100%;
 }
 
-#footer {
-	margin-top: 0px;
-}
-
-.test a {
-	font-weight: 400;
-}
-
-.test {
-}
-
-.canceltest {
-	float: right;
-}
-
-.question, .answers {
-	padding: 10px;
-}
-
+#footer { margin-top: 0px; }
+.test a { font-weight: 400; }
+.test {  }
+.canceltest { float: right; }
+.question, .answers { padding: 10px; }
+#timer { font-weight: bolder; }
+#next { display: none; }
 
 
 
