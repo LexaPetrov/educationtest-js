@@ -18,13 +18,13 @@
   src: url('./fonts/Geometria-ExtraBold.ttf');
 }
 
-body {
-	padding-top: 1%;
-	font-family: "Geometria", sans-serif;
+@font-face {
+  font-family: 'glyphicons-halflings-regular';
+  src: url('./fonts/glyphicons-halflings-regular.ttf');
 }
 
 .container {
-	width: 50%;
+	display: block;
 }
 
 .centered {
@@ -36,8 +36,8 @@ body {
 }
 
 .test, .hello, #footer {
-	/*border: 1px dotted gray;*/
-	box-shadow: 0px 1px 3px 0px;
+	display: block;
+	box-shadow: 0px 1px 5px 0px gray;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	padding: 10px;
@@ -50,7 +50,6 @@ body {
 
 .test a {
 	font-weight: 400;
-	text-decoration: underline;
 }
 
 .test {
@@ -83,24 +82,3 @@ body {
 
 
 
-
-
-
-.fa-1x {
-font-size: 1.5rem;
-}
-.navbar-toggler.toggler-example {
-cursor: pointer;
-}
-.dark-blue-text {
-color: #0A38F5;
-}
-.dark-pink-text {
-color: #AC003A;
-}
-.dark-amber-text {
-color: #ff6f00;
-}
-.dark-teal-text {
-color: #004d40;
-}
