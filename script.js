@@ -26,7 +26,7 @@ function getRandomInt(min, max) {
 function next() {
 		counter++;
 		if (counter > 30){
-			console.log("много вопросов/тест окончен");
+			console.log("тест окончен");
 		}
 		else {
 			document.getElementById("answers").innerHTML = "";
