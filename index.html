@@ -43,7 +43,7 @@
 						</div>
 						<div class="test">
 							<div class="time">
-								<p>Осталось времени: <span id="timer"></span></p>
+								<p><span id="timer"></span></p>
 							</div>
 							<div id="question">
 								
@@ -51,14 +51,12 @@
 							<div id="answers">
 						
 							</div>
-							<div id="correctanswers">
-						
-							</div>
 							<div class="navbutton">
 								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next">Следующий вопрос</a>
-								<span id="number"><!-- вопрос N из 30 --></span>
 								<a href="#" id="canceltest" onclick="cancel();" class="btn btn-danger canceltest">Завершить тест</a>
 							</div>
+							<div><span id="number"><!-- вопрос N из 30 --></span></div>
+							<div id="correctanswers"><!-- показ правильного ответа --></div>
 						</div>
 					</div>
 				</div>

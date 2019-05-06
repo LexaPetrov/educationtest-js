@@ -32,7 +32,7 @@ function next() {
 			document.getElementById("answers").innerHTML = "";
 			var answer;
 			var int = getRandomInt(0, 204);
-			document.getElementById("number").innerHTML = "Вопрос "+ counter +" из 30";
+			document.getElementById("number").innerHTML = "<br>" + "Вопрос "+ counter +" из 30";
 			document.getElementById("question").innerHTML = tasks[int].question;
 			for (answer of tasks[int].answers) {
 				document.getElementById("answers").innerHTML += ' <input type="radio" value=""></input> ' + answer + '<br>';
@@ -60,7 +60,7 @@ function refresh()
 	}
 	time=(min<=9 ? "0"+min : min) + ":" + sec;
 	if(document.getElementById){
-		timer.innerHTML=time;
+		timer.innerHTML="Осталось времени: " + time;
 	}
 	inter=setTimeout("refresh()", 1000);
 	if(min=='00' && sec=='00'){
