@@ -71,7 +71,7 @@ function next() {
 		document.getElementById("number").innerHTML = "<br>" + "Вопрос "+ counter +" из 30";
 		document.getElementById("question").innerHTML = tasks[int].question;
 		for (i = 0; i < tasks[int].answers.length; i++) {
-			document.getElementById("answers").innerHTML += ` <input type="radio" id="answer-${counter}-${i+1}" value="${i+1}"></input>${tasks[int].answers[i]}<br> `;
+			document.getElementById("answers").innerHTML += ` <input type="radio" name="group" id="answer-${counter}-${i+1}" value="${i+1}"></input>${tasks[int].answers[i]}<br> `;
 		}
 		correctanswer = tasks[int].index;
 	}
@@ -122,7 +122,30 @@ function complete() {
 	}
 
 	document.getElementById("result-brief").appendChild(document.createTextNode(`Ваш результат: ${Math.round(res/30*100)}%`));
-	//сделать выгрузку в файл
+
+	let answers = result.map(function (item) {
+		return `
+
+		номер вопроса: ${item.number}, вопрос: ${tasks[item.number].question},
+		ответ ученика: ${tasks[item.number].answers[item.userAnswer - 1]},
+		правильный ответ: ${tasks[item.number].answers[item.rightAnswer - 1]}`;
+	});
+
+	let brief = `
+		Имя ученика: ${document.getElementById("name").value}.
+		Процент решения: ${Math.round(res/30*100)}.
+	`;
+
+	let report = `
+		Имя ученика: ${document.getElementById("name").value}.
+		Процент решения: ${Math.round(res/30*100)}.
+		Детали:
+		${answers}
+	`;
+
+	setTimeout(download, 10, report, 'myfile.txt', 'text/plain');
+
+	//setTimeout(download, 10, brief, 'extrafile.txt', 'text/plain');
 }
 
 var sec=00;
@@ -151,4 +174,12 @@ function refresh()
                 //sample.innerHTML="Время вышло, тест окончен.";
 		complete();
 	}
+}
+
+function download(text, name, type) {
+	console.log("function called!");
+ 	var a = document.getElementById("a");
+ 	var file = new Blob([text], {type: type});
+ 	a.href = URL.createObjectURL(file);
+ 	a.download = name;
 }
