@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Тест для старшей школы | Оренбург</title>
+	<title>Проверь свои знания по информационной безопасности | Оренбург</title>
 	<script type="text/javascript" src="./test.json"></script>
 	<script src="./script.js"></script>
 	<script src="./jquery.js"></script>
 	<script src="./bootstrap.min.js"></script>
+	<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+	<script src="https://yastatic.net/share2/share.js"></script>
 	<link rel="stylesheet" href="./bootstrap3.3.7.css">
 	<link rel="stylesheet" href="./style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +26,7 @@
 		    </div>
 			    <div class="collapse navbar-collapse" id="navbar-main">
 					 <ul class="nav navbar-nav">
-				        <li class="active"><a href="#">Главная</a></li>
+				        <li class="active"><a href="index.html">Главная</a></li>
 				        <li><a href="#">О системе</a></li>
 				        <li><a href="#">Как пользоваться</a></li>
 				        <li><a href="#">Контакты</a></li>
@@ -56,14 +58,22 @@
 								<a href="#" id="canceltest" onclick="complete();" class="btn btn-danger canceltest">Завершить тест</a>
 							</div>
 							<div><span id="number"><!-- вопрос N из 30 --></span></div>
+
+						</div>
+						<div>
+							<p>Понравилось? Поделитесь в социальных сетях.
+								<div  id="share" class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,telegram" data-counter="ig">
+									
+								</div>
 						</div>
 					</div>
 				</div>
 				<div class="hidden" id="result">
 					<h4 id="result-brief"></h4>
-					<a href="" id="a">Скачать отчёт</a>
+					<a href="" id="a" class="btn btn-success">Скачать отчёт</a>
+				<!-- 	<a href="" onclick="printdata();" class="btn btn-info">Распечатать отчёт</a> -->
 					<table id="result-table"/>
-				</div>
+				</div>		
 			</main>
 		</div>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
