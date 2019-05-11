@@ -147,9 +147,9 @@ function complete() {
 	//document.getElementById('share').setAttribute("data-title", share);
 	//$('#share').attr('data-description', 'wadsfd');
 	
-	setTimeout(download, 10, report, 'myfile.txt', 'text/plain');
+	//setTimeout(download, 10, report, 'myfile.txt', 'text/plain');
 
-	//setTimeout(download, 10, brief, 'extrafile.txt', 'text/plain');
+	setTimeout(download, 10, brief, 'extrafile.txt', 'text/plain');
 }
 
 var sec=00;
