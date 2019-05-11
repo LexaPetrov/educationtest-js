@@ -5,7 +5,7 @@
 	<title>Тест для старшей школы | Оренбург</title>
 	<script type="text/javascript" src="./test.json"></script>
 	<script src="./script.js"></script>
-	<script src="./jquery.js"></script>	
+	<script src="./jquery.js"></script>
 	<script src="./bootstrap.min.js"></script>
 	<link rel="stylesheet" href="./bootstrap3.3.7.css">
 	<link rel="stylesheet" href="./style.css">
@@ -36,38 +36,34 @@
 			<main>
 				<div class="row">
 					<div class="col-sm-12 col-xs-12">
-						<div class="hello">
+						<div id="hello" class="hello">
 							<p>Привет! Чтобы начать, напиши своё имя:</p>
 							<input type="text" required="" id="name"></input>
 							<a href="#" id="begin" class="btn btn-info begintest" onclick="showQuestions();">Начать тест!</a>
 						</div>
-						<div class="test">
+						<div id="test" class="hidden">
 							<div class="time">
 								<p><span id="timer"></span></p>
 							</div>
 							<div id="question">
-								
+
 							</div>
-							<div id="answers">
-						
+							<div id="answers" class="answers">
+
 							</div>
 							<div class="navbutton">
 								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next">Следующий вопрос</a>
-								<a href="#" id="canceltest" onclick="cancel();" class="btn btn-danger canceltest">Завершить тест</a>
+								<a href="#" id="canceltest" onclick="complete();" class="btn btn-danger canceltest">Завершить тест</a>
 							</div>
 							<div><span id="number"><!-- вопрос N из 30 --></span></div>
-							<div id="correctanswers"><!-- показ правильного ответа --></div>
 						</div>
 					</div>
 				</div>
-				
-			</main>
-
-			<footer id="footer">
-				<div>
-					
+				<div class="hidden" id="result">
+					<h4 id="result-brief"></h4>
+					<table id="result-table"/>
 				</div>
-			</footer>
+			</main>
 		</div>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>

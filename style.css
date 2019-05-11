@@ -45,21 +45,46 @@
 #next, #canceltest { display: none; }
 #question { font-weight: bolder; }
 
+.hidden {
+    display: none;
+}
 
+@keyframes red {
+  from {background-color: red;}
+  to {background-color: white;}
+}
 
+@keyframes green {
+  from {background-color: green;}
+  to {background-color: white;}
+}
 
+@keyframes red2 {
+  from {background-color: red;}
+  to {background-color: white;}
+}
 
+@keyframes green2 {
+  from {background-color: green;}
+  to {background-color: white;}
+}
 
+.answers {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
 
+.red {
+    background-color: salmon;
+}
 
+.green {
+    background-color: lime;
+}
 
-
-
-
-
-
-
-
-
-
-
+#result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
