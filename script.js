@@ -186,6 +186,12 @@ function download(text, name, type) {
  	a.download = name;
 }
 
+function sendMail()
+{
+    var body = document.getElementById("test").value;
+    window.location.href = "mailto:mail@example.org?subject=Mail request&body="+body;
+}
+
  // function PrintElem(elem)
  //    {
  //        Popup($(elem).html());
@@ -219,3 +225,4 @@ function download(text, name, type) {
  //    function printdata() {
  //    	PrintElem('#result');
  //    }
+
