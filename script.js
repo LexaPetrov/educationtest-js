@@ -4,6 +4,7 @@ var result = [];
 var i;
 var correctanswer;
 var int;
+var sendMail;
 function showQuestions(){
 	if(document.getElementById("name").value === '') {
     	alert("Напиши свое имя!");
@@ -142,7 +143,10 @@ function complete() {
 		${answers}
 	`;
 
-	
+	sendMail = function()
+	{
+	    window.location.href = "mailto:mail@example.org?subject=Mail request&body="+report;
+	}
 	//var share = `Я решил тест по информационной безопасности на ${Math.round(res/30*100)}%! Сможешь меня обойти? ` ;
 	//document.getElementById('share').setAttribute("data-title", share);
 	//$('#share').attr('data-description', 'wadsfd');
@@ -186,11 +190,7 @@ function download(text, name, type) {
  	a.download = name;
 }
 
-function sendMail()
-{
-    var body = document.getElementById("test").value;
-    window.location.href = "mailto:mail@example.org?subject=Mail request&body="+body;
-}
+
 
  // function PrintElem(elem)
  //    {
