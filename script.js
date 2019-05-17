@@ -147,12 +147,41 @@ function complete() {
 	var now = new Date();
 	log += 'Дата: ' + now + brief;
 
-	hashCode = function(s){
-  	return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+	console.log((log));
+
+	let cipher = salt => {
+    let textToChars = text => text.split('').map(c => c.charCodeAt(0))
+    let byteHex = n => ("0" + Number(n).toString(16)).substr(-2)
+    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)    
+
+    return text => text.split('')
+        .map(textToChars)
+        .map(applySaltToChar)
+        .map(byteHex)
+        .join('')
 	}
 
-	console.log((log));
-	console.log(hashCode(log));
+	let decipher = salt => {
+	    let textToChars = text => text.split('').map(c => c.charCodeAt(0))
+	    let saltChars = textToChars(salt)
+	    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)
+	    return encoded => encoded.match(/.{1,2}/g)
+	        .map(hex => parseInt(hex, 16))
+	        .map(applySaltToChar)
+	        .map(charCode => String.fromCharCode(charCode))
+	        .join('')
+	}
+
+// To create a cipher
+let myCipher = cipher('tests');
+
+//Then cipher any text:
+console.log(myCipher(log));  // --> "7c606d287b6d6b7a6d7c287b7c7a61666f"
+
+//To decipher, you need to create a decipher and use it:
+let myDecipher = decipher('tests');
+console.log(myDecipher(myCipher(log)));    // --> 'the secret string'
+
 
 	sendMail = function()
 	{
