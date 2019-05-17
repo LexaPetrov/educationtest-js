@@ -28,9 +28,9 @@
 		    </div>
 			    <div class="collapse navbar-collapse" id="navbar-main">
 					 <ul class="nav navbar-nav">
-				        <li  class="active"><a href="index.html">Главная</a></li>
+				        <li><a href="index.html">Главная</a></li>
 				        <li><a href="about.html">О системе</a></li>
-				        <li><a href="test.html">Тестирование</a></li>
+				        <li class="active"><a href="test.html">Тестирование</a></li>
 				        <li><a href="contacts.html">Контакты</a></li>
       				</ul>
 			    </div>
@@ -40,20 +40,27 @@
 			<main>
 				<div class="row">
 					<div class="col-sm-12 col-xs-12">
-						<div class="welcome">
-							<p>
-							<h4>Добро пожаловать на страницу онлайн тестирования по информационной безопасности и безопасности в социальных сетях!</h4>
-							На данной страницы вы можете:<br>
-							</p>
-							<ul class="poslist">
-								<li><a href="about.html" class="btn btn-info">Почитать подробнее о тестировании</a></li>
-								<li><a href="#" class="btn btn-warning" onclick="check();">Посмотреть свой результат</a></li>
-								<li><a href="test.html" class="btn btn-success">Перейти к тестированию</a></li>
-							</ul>
+						<div id="hello" class="hello">
+							<p>Привет! Чтобы начать, напиши своё имя и фамилию:</p>
+							<input type="text" required="" id="name" placeholder="имя и фамилия"></input>
+							<a href="#" id="begin" class="btn btn-info begintest" onclick="showQuestions();">Начать тест!</a>
 						</div>
-						<div class="check-results" id="check-results">
-							<p>Введите уникальный код вашего резуьтата тестирования:</p>
-							<p><input type="text" name="" class="checkinput" placeholder="введите ваш код здесь"></input> <a href="#" class="btn btn-success" onclick="checkres();">Посмотреть результат</a></p>
+						<div id="test" class="hidden">
+							<div class="time">
+								<p><span id="timer"></span></p>
+							</div>
+							<div id="question">
+
+							</div>
+							<form id="answers" class="answers">
+
+							</form>
+							<div class="navbutton">
+								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next">Следующий вопрос</a>
+								<a href="#" id="canceltest" onclick="complete();" class="btn btn-danger canceltest">Завершить тест</a>
+							</div>
+							<div><span id="number"><!-- вопрос N из 30 --></span></div>
+
 						</div>
 						<div>
 							<p>Понравилось? Поделитесь в социальных сетях.
@@ -63,7 +70,13 @@
 						</div>
 					</div>
 				</div>
-				
+				<div class="hidden" id="result">
+					<h4 id="result-brief"></h4>
+					<a href="" id="a" class="btn btn-success">Скачать отчёт</a>
+					<a href="#" onclick="sendMail();" class="btn btn-info">Отправить на почту</a>
+				<!-- 	<a href="" onclick="printdata();" class="btn btn-info">Распечатать отчёт</a> -->
+					<table id="result-table"/>
+				</div>		
 			</main>
 		</div>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

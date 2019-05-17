@@ -27,7 +27,12 @@
 .centered { margin: 0 auto; }
 #footer { height: 75px; }
 
-.test, .hello, #footer {
+.poslist { list-style-type: none; }
+.poslist li { margin-top: 10px; }
+
+.welcome h4 { text-align: center; }
+
+.test, .hello, #footer, .welcome, .about, .contacts, .check-results {
 	display: block;
 	box-shadow: 0px 1px 5px 0px gray;
 	margin-bottom: 10px;
@@ -36,9 +41,13 @@
 	height: 100%;
 }
 
+.smile { width: 24px; height: 24px; }
+
+.checkinput { width: 50%; }
+
 #footer { margin-top: 0px; }
 .test a { font-weight: 400; }
-.test {  }
+#name { width: 25%; }
 .canceltest { float: right; }
 .question, .answers { padding: 10px; }
 #timer { font-weight: bolder; }
@@ -48,6 +57,8 @@
 .hidden {
     display: none;
 }
+
+.check-results { display: none; }
 
 @keyframes red {
   from {background-color: red;}
