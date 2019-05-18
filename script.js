@@ -147,7 +147,7 @@ function complete() {
 	var now = new Date();
 	log += 'Дата: ' + now + brief;
 
-	console.log((log));
+	console.log((log)); //гезашифрованная строка
 
 	let cipher = salt => {
     let textToChars = text => text.split('').map(c => c.charCodeAt(0))
@@ -172,15 +172,13 @@ function complete() {
 	        .join('')
 	}
 
-// To create a cipher
 let myCipher = cipher('tests');
-
-//Then cipher any text:
-console.log(myCipher(log));  // --> "7c606d287b6d6b7a6d7c287b7c7a61666f"
-
-//To decipher, you need to create a decipher and use it:
+console.log(myCipher(log)); //зашифрованная строка
 let myDecipher = decipher('tests');
-console.log(myDecipher(myCipher(log)));    // --> 'the secret string'
+//console.log(myDecipher(myCipher(log)));    //расшифровка
+var test = (myDecipher(myCipher(log)));  
+console.log(test);
+
 
 
 	sendMail = function()
@@ -264,5 +262,6 @@ function check(){
 	document.getElementById("check-results").style.display = "block";
 }
 function checkres() {
-	// body...
+	console.log(log);
+	document.getElementById("checked-results").innerHTML = test.toString();
 }
