@@ -41,6 +41,12 @@
 	height: 100%;
 }
 
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+#uniquecode { width: 100%; word-wrap: wrap;}
 .smile { width: 24px; height: 24px; }
 
 .checkinput { width: 50%; }
