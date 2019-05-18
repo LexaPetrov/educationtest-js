@@ -145,13 +145,13 @@ function complete() {
 		${answers}
 	`;
 	var now = new Date();
-	log += 'Date: ' + now + brief;
+	log +='\n\t\t' + 'Date: ' + now + brief;
 
 	console.log((log)); //гезашифрованная строка
 
 	let cipher = salt => {
     let textToChars = text => text.split('').map(c => c.charCodeAt(0))
-    let byteHex = n => ("0" + Number(n).toString(16)).substr(-2)
+    let byteHex = n => ("0" + Number(n).toString(32)).substr(-2)
     let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)    
 
     return text => text.split('')
@@ -163,7 +163,7 @@ function complete() {
 
 	
 
-let myCipher = cipher('tests');
+let myCipher = cipher('');
 //console.log(myCipher(log)); //зашифрованная строка
 document.getElementById("uniquecode").innerHTML += myCipher(log);
 // let myDecipher = decipher('tests');
@@ -259,13 +259,13 @@ function checkres() {
 	    let saltChars = textToChars(salt)
 	    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)
 	    return encoded => encoded.match(/.{1,2}/g)
-	        .map(hex => parseInt(hex, 16))
+	        .map(hex => parseInt(hex, 32))
 	        .map(applySaltToChar)
 	        .map(charCode => String.fromCharCode(charCode))
 	        .join('')
 	}
 	//console.log(log);
-	let myDecipher = decipher('tests');
+	let myDecipher = decipher('');
 	var code = document.getElementById("checkinput").value;
 	document.getElementById("checked-results").innerHTML += myDecipher(code);
 }
