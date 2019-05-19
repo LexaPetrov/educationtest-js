@@ -9,7 +9,7 @@
 	<script src="./bootstrap.min.js"></script>
 	<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
 	<script src="https://yastatic.net/share2/share.js"></script>
-	<script src="md5.js"></script>
+	<script src="https://momentjs.com/downloads/moment.js"></script>
 	<link rel="stylesheet" href="./bootstrap3.3.7.css">
 	<link rel="stylesheet" href="./style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,13 +72,15 @@
 				</div>
 				<div class="hidden" id="result">
 					<h4 id="result-brief"></h4>
-					<a href="" id="a" class="btn btn-success">Скачать отчёт</a>
-					<a href="#" onclick="sendMail();" class="btn btn-info">Отправить на почту</a>
-				<!-- 	<a href="" onclick="printdata();" class="btn btn-info">Распечатать отчёт</a> -->
 					<table id="result-table"/>
+					
 					<div class="uniquecode" id="">
 						<p>Ваш уникальный код результата тестирования:</p>
 						<textarea id="uniquecode" readonly rows="5" cols="40"></textarea> 
+						<a href="#" id="copyto" class="btn btn-info" onclick="copyto();">Скопировать код в буфер</a>
+						<a href="#" onclick="sendMail();" class="btn btn-info">Отправить на почту</a>
+						<a href="" id="a" class="btn btn-success">Скачать отчёт</a>
+						<p>Вы сможете ввести код на <a href="index.html" class="underlink">этой странице</a></p>
 					</div>
 				</div>		
 			</main>

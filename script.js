@@ -144,10 +144,13 @@ function complete() {
 		Детали:
 		${answers}
 	`;
-	var now = new Date();
-	log +='\n\t\t' + 'Date: ' + now + brief;
 
-	console.log((log)); //гезашифрованная строка
+	var now = new Date();
+	var newdate = moment(now);
+	newdate = newdate.format("MMM DD/MM/YYYY HH:mm:ss ");
+	log +='\n\t\t' + 'Date: ' + newdate + brief;
+
+	//console.log((log)); //гезашифрованная строка
 
 	let cipher = salt => {
     let textToChars = text => text.split('').map(c => c.charCodeAt(0))
@@ -268,4 +271,10 @@ function checkres() {
 	let myDecipher = decipher('');
 	var code = document.getElementById("checkinput").value;
 	document.getElementById("checked-results").innerHTML += myDecipher(code);
+}
+
+function copyto() {
+	let textarea = document.getElementById("uniquecode");
+  	textarea.select();
+  	document.execCommand("copy");
 }

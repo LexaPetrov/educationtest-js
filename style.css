@@ -41,10 +41,14 @@
 	height: 100%;
 }
 
+.underlink { text-decoration: underline; }
+
 textarea {
     resize: none;
     width: 100%;
 }
+
+.uniquecode { text-align: center; }
 
 #uniquecode { width: 100%; word-wrap: wrap;}
 .smile { width: 24px; height: 24px; }
