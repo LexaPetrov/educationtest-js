@@ -185,31 +185,27 @@ function complete() {
 	var now = new Date();
 	var newdate = moment(now);
 	newdate = newdate.format("MMM DD/MM/YYYY HH:mm:ss ");
-	log +='\n\t\t' + 'Date: ' + newdate + brief;
-
-	//console.log((log)); //гезашифрованная строка
+	log += '\n\t\t' + 'Date: ' + newdate + brief;
 
 	let cipher = salt => {
-    let textToChars = text => text.split('').map(c => c.charCodeAt(0))
-    let byteHex = n => ("0" + Number(n).toString(32)).substr(-2)
-    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)
+	    let textToChars = text => text.split('').map(c => c.charCodeAt(0));
+	    let byteHex = n => ("0" + Number(n).toString(36)).substr(-2);
+	    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
 
-    return text => text.split('')
-        .map(textToChars)
-        .map(applySaltToChar)
-        .map(byteHex)
-        .join('')
+	    return text => text.split('')
+	        .map(textToChars)
+	        .map(applySaltToChar)
+	        .map(byteHex)
+	        .join('')
 	}
 
-
-
-let myCipher = cipher('');
-//console.log(myCipher(log)); //зашифрованная строка
-document.getElementById("uniquecode").innerHTML += myCipher(log);
-// let myDecipher = decipher('tests');
-// //console.log(myDecipher(myCipher(log)));    //расшифровка
-// var test = (myDecipher(myCipher(log)));
-// console.log(test);
+	let myCipher = cipher('');
+	//console.log(myCipher(log)); //зашифрованная строка
+	document.getElementById("uniquecode").innerHTML += myCipher(log);
+	// let myDecipher = decipher('tests');
+	// //console.log(myDecipher(myCipher(log)));    //расшифровка
+	// var test = (myDecipher(myCipher(log)));
+	// console.log(test);
 
 
 
@@ -299,7 +295,7 @@ function checkres() {
 	    let saltChars = textToChars(salt)
 	    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)
 	    return encoded => encoded.match(/.{1,2}/g)
-	        .map(hex => parseInt(hex, 32))
+	        .map(hex => parseInt(hex, 36))
 	        .map(applySaltToChar)
 	        .map(charCode => String.fromCharCode(charCode))
 	        .join('')
