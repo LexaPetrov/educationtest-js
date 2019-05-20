@@ -12,6 +12,8 @@
 	<script src="https://momentjs.com/downloads/moment.js"></script>
 	<link rel="stylesheet" href="./bootstrap3.3.7.css">
 	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="introjs.min.css">
+	<script src="./intro.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -42,28 +44,28 @@
 					<div class="col-sm-12 col-xs-12">
 						<div id="hello" class="hello">
 							<p>Привет! Чтобы начать, напиши своё имя и фамилию:</p>
-							<input type="text" required="" id="name" placeholder="имя и фамилия"></input>
+							<input type="text" required=""  id="name" placeholder="имя и фамилия"></input >
 							<a href="#" id="begin" class="btn btn-info begintest" onclick="showQuestions();">Начать тест!</a>
 						</div>
 						<div id="test" class="hidden">
-							<div class="time">
+							<div class="time" data-step="1" data-intro='Время прохождения тестирования ограничено'>
 								<p><span id="timer"></span></p>
 							</div>
 							<div id="question">
 
 							</div>
-							<form id="answers" class="answers">
+							<form id="answers" class="answers"  data-step="2" data-intro='Выберите 1 ответ'>
 
 							</form>
 							<div class="navbutton">
-								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next">Следующий вопрос</a>
-								<a href="#" id="canceltest" onclick="complete();" class="btn btn-danger canceltest">Завершить тест</a>
+								<a href="#" onclick="next();" class="btn btn-success nextquestion" id="next"  data-step="3" data-intro='И переходите к следующему вопросу'>Следующий вопрос</a>
+								<a href="#" id="canceltest" data-step="4" data-intro='Можно завершить тестирование досрочно' onclick="complete();" class="btn btn-danger canceltest">Завершить тест</a>
 							</div>
 							<div><span id="number"><!-- вопрос N из 30 --></span></div>
 
 						</div>
 						<div>
-							<p>Понравилось? Поделитесь в социальных сетях.
+							<div><p>Понравилось? Поделитесь в социальных сетях.	<span style="float:right;"> Возникли трудности с взаимодействием? <a href="javascript:void(0);" onclick="javascript:introJs().start();">показать обучение</a></span></div>
 								<div  id="share" class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,telegram" data-counter="ig">
 									
 								</div>
@@ -71,10 +73,10 @@
 					</div>
 				</div>
 				<div class="hidden" id="result">
-					<h4 id="result-brief"></h4>
+					<h4 id="result-brief" data-step="5" data-intro='Ваш результат'></h4>
 					<table id="result-table"/>
 					
-					<div class="uniquecode" id="">
+					<div class="uniquecode" id="" data-step="6" data-intro='Результат сохранён здесь. Сохраните этот код, чтобы в будущем посмотреть результаты пройденных тестов.'>
 						<p>Ваш уникальный код результата тестирования:</p>
 						<textarea id="uniquecode" readonly rows="5" cols="40"></textarea> 
 						<a href="#" id="copyto" class="btn btn-info" onclick="copyto();">Скопировать код в буфер</a>

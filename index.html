@@ -12,6 +12,8 @@
 	<script src="md5.js"></script>
 	<link rel="stylesheet" href="./bootstrap3.3.7.css">
 	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="introjs.min.css">
+	<script src="./intro.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -27,11 +29,11 @@
 				<a class="navbar-brand" href="https://github.com/romanchumakov" title="Разработчик: Роман Чумаков"><img class="smile" src="img/dev1.png" alt="💁‍♂"></a>
 		    </div>
 			    <div class="collapse navbar-collapse" id="navbar-main">
-					 <ul class="nav navbar-nav">
+					 <ul class="nav navbar-nav" data-step="1" data-intro='Здесь расположена панель навигации по сайту. Вы находитесь на главной странице.'>
 				        <li  class="active"><a href="index.html">Главная</a></li>
-				        <li><a href="about.html">О системе</a></li>
-				        <li><a href="test.html">Тестирование</a></li>
-				        <li><a href="contacts.html">Контакты</a></li>
+				        <li><a href="about.html" data-step="2" data-intro='На этой странице вы можете узнать больше информации о тестировании, его разработке'>О системе</a></li>
+				        <li><a href="test.html" data-step="3" data-intro='Чтобы начать тестирование, нажмите сюда'>Тестирование</a></li>
+				        <li><a href="contacts.html" data-step="4" data-intro='Контактная информация'>Контакты</a></li>
       				</ul>
 			    </div>
 		</div>
@@ -46,9 +48,9 @@
 							На данной страницы вы можете:<br>
 							</p>
 							<ul class="poslist">
-								<li><a href="about.html" class="btn btn-info">Почитать подробнее о тестировании</a></li>
-								<li><a href="#" id="showresult" class="btn btn-warning" onclick="check();">Посмотреть свой результат</a></li>
-								<li><a href="test.html" class="btn btn-success">Перейти к тестированию</a></li>
+								<li><a href="about.html" class="btn btn-info" data-step="5" data-intro='То же самое, что и вкладка "о системе" сверху'>Почитать подробнее о тестировании</a></li>
+								<li><a href="#" id="showresult" class="btn btn-warning" onclick="check();" data-step="6" data-intro='Здесь вы можете ввести код, который вы получили после прохождения тестирования, чтобы посмотреть сохраненный результат прохождения тестирования'>Посмотреть свой результат</a></li>
+								<li><a href="test.html" class="btn btn-success" data-step="7" data-intro='То же самое, что и вкладка "тестирование" сверху'>Перейти к тестированию</a></li>
 							</ul>
 						</div>
 						<div class="check-results" id="check-results">
@@ -59,10 +61,11 @@
 							</textarea>
 						</div>
 						<div>
-							<p>Понравилось? Поделитесь в социальных сетях.
+							<div><p>Понравилось? Поделитесь в социальных сетях.	<span style="float:right;"> Возникли трудности с взаимодействием? <a href="javascript:void(0);" onclick="javascript:introJs().start();">показать обучение</a></span></div>
 								<div  id="share" class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,telegram" data-counter="ig">
 									
 								</div>
+
 						</div>
 					</div>
 				</div>
