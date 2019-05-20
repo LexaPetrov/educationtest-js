@@ -4,7 +4,9 @@ var counter = 0;
 var result = [];
 var i;
 var correctanswer;
+var correctAnswerCount = 0;
 var int;
+var used = {};
 var sendMail;
 var log = new Array();
 function showQuestions(){
@@ -12,6 +14,7 @@ function showQuestions(){
     	alert("Напиши свое имя!");
 	}
 	else {
+		correctAnswerCount = 0;
 		document.getElementById("test").className = "test";
 		document.getElementById("hello").className = "hidden";
 		refresh();
@@ -45,6 +48,7 @@ function next() {
 					else {
 						document.getElementById("answers").style = "animation-name: green2;";
 					}
+					correctAnswerCount++;
 				}
 				else {
 					if (counter %2 === 0) {
@@ -71,6 +75,10 @@ function next() {
 	else {
 		document.getElementById("answers").innerHTML = "";
 		int = getRandomInt(0, 204);
+		while (used[int] !== undefined) {
+			int = getRandomInt(0, 204);
+		}
+		used[int] = "1";
 		document.getElementById("number").innerHTML = "<br>" + "Вопрос "+ counter +" из 30";
 		document.getElementById("question").innerHTML = tasks[int].question;
 		for (i = 0; i < tasks[int].answers.length; i++) {
@@ -79,6 +87,23 @@ function next() {
 		correctanswer = tasks[int].index;
 	}
 
+	let prog = Math.round(correctAnswerCount / (counter-1) * 100);
+
+	if (isNaN(prog)) {
+		prog = 0;
+	}
+
+	document.getElementById("progress-bar").style.width = `${prog}%`;
+	if (prog < 50) {
+		document.getElementById("progress-bar").style.backgroundColor = "red";
+	}
+	else if (prog < 80){
+		document.getElementById("progress-bar").style.backgroundColor = "yellow";
+	}
+	else {
+		document.getElementById("progress-bar").style.backgroundColor = "green";
+	}
+	document.getElementById("progress").innerHTML = "Прогресс: " + prog + "%";
 }
 
 function complete() {
@@ -124,7 +149,19 @@ function complete() {
 		tr.appendChild(td);
 	}
 
-	document.getElementById("result-brief").appendChild(document.createTextNode(`Результат теста для ${document.getElementById("name").value} : ${Math.round(res/30*100)}%`));
+	let prog = Math.round(res / 30 * 100);
+
+	if (prog < 50) {
+		document.getElementById("result-brief").style.color = "red";
+	}
+	else if (prog < 80){
+		document.getElementById("result-brief").style.color = "yellow";
+	}
+	else {
+		document.getElementById("result-brief").style.color = "green";
+	}
+
+	document.getElementById("result-brief").appendChild(document.createTextNode(`Результат теста для ${document.getElementById("name").value} : ${prog}%`));
 
 	let answers = result.map(function (item) {
 		return `
@@ -155,7 +192,7 @@ function complete() {
 	let cipher = salt => {
     let textToChars = text => text.split('').map(c => c.charCodeAt(0))
     let byteHex = n => ("0" + Number(n).toString(32)).substr(-2)
-    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)    
+    let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)
 
     return text => text.split('')
         .map(textToChars)
@@ -164,14 +201,14 @@ function complete() {
         .join('')
 	}
 
-	
+
 
 let myCipher = cipher('');
 //console.log(myCipher(log)); //зашифрованная строка
 document.getElementById("uniquecode").innerHTML += myCipher(log);
 // let myDecipher = decipher('tests');
 // //console.log(myDecipher(myCipher(log)));    //расшифровка
-// var test = (myDecipher(myCipher(log)));  
+// var test = (myDecipher(myCipher(log)));
 // console.log(test);
 
 
@@ -225,7 +262,7 @@ function download(text, name, type) {
  //        Popup($(elem).html());
  //    }
 
-  
+
  //    function Popup(data)
  //    {
  //        var mywindow = window.open('', 'result', 'height=400,width=600');
@@ -239,7 +276,7 @@ function download(text, name, type) {
  //        mywindow.document.write(data);
  //        var name = document.getElementById("name").value
  //        var res = document.getElementById("result-table");
- //        mywindow.document.write(res);   
+ //        mywindow.document.write(res);
  //        mywindow.document.write('</body></html>');
  // 		mywindow.document.write('<br> _______________________________________________________________________ <br> ');
  //        mywindow.document.close(); // necessary for IE >= 10

@@ -46,8 +46,18 @@
 							<a href="#" id="begin" class="btn btn-info begintest" onclick="showQuestions();">Начать тест!</a>
 						</div>
 						<div id="test" class="hidden">
-							<div class="time">
-								<p><span id="timer"></span></p>
+							<div class = "test-header-container">
+								<div class="progress-bar-container">
+									<span id="progress"></span>
+									<div id="progress-bar-wrapper">
+										<div id="progress-bar">
+
+										</div>
+									</div>
+								</div>
+								<div class="time">
+									<p><span id="timer"></span></p>
+								</div>
 							</div>
 							<div id="question">
 
@@ -65,7 +75,7 @@
 						<div>
 							<p>Понравилось? Поделитесь в социальных сетях.
 								<div  id="share" class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,twitter,telegram" data-counter="ig">
-									
+
 								</div>
 						</div>
 					</div>
@@ -73,16 +83,16 @@
 				<div class="hidden" id="result">
 					<h4 id="result-brief"></h4>
 					<table id="result-table"/>
-					
+
 					<div class="uniquecode" id="">
 						<p>Ваш уникальный код результата тестирования:</p>
-						<textarea id="uniquecode" readonly rows="5" cols="40"></textarea> 
+						<textarea id="uniquecode" readonly rows="5" cols="40"></textarea>
 						<a href="#" id="copyto" class="btn btn-info" onclick="copyto();">Скопировать код в буфер</a>
 						<a href="#" onclick="sendMail();" class="btn btn-info">Отправить на почту</a>
 						<a href="" id="a" class="btn btn-success">Скачать отчёт</a>
 						<p>Вы сможете ввести код на <a href="index.html" class="underlink">этой странице</a></p>
 					</div>
-				</div>		
+				</div>
 			</main>
 		</div>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
