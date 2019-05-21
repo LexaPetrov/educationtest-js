@@ -171,8 +171,8 @@ function complete() {
 	});
 
 	let brief = `
-		Name: ${document.getElementById("name").value}.
-		Percent: ${Math.round(res/30*100)}.
+		Имя: ${document.getElementById("name").value}.
+		Процент решения: ${Math.round(res/30*100)}.
 	`;
 
 	let report = `
@@ -183,9 +183,9 @@ function complete() {
 	`;
 
 	var now = new Date();
-	var newdate = moment(now);
-	newdate = newdate.format("MMM DD/MM/YYYY HH:mm:ss ");
-	log += '\n\t\t' + 'Date: ' + newdate + brief;
+	//var newdate = moment(now);
+	//newdate = newdate.format("MMM DD/MM/YYYY HH:mm:ss ");
+	log += '\n\t\t' + 'Дата: ' + now + brief;
 
 	let cipher = salt => {
 	    let textToChars = text => text.split('').map(c => c.charCodeAt(0));
@@ -211,7 +211,7 @@ function complete() {
 
 	sendMail = function()
 	{
-	    window.location.href = "mailto:?subject=Результат тестирования&body="+brief;
+	    window.location.href = `mailto:?subject=Результат теста для ${document.getElementById("name").value}&body=`+brief;
 	}
 
 	setTimeout(download, 10, brief, 'extrafile.txt', 'text/plain');
